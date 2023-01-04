@@ -1,17 +1,18 @@
 import React from "react"
 
 function CreatePost(){
-    return 
+    return( 
     <div>
         <h1>Create Post</h1>
         <div>
             <label>Title</label>
-            <input type={text}/>
+            <input type={"text"}/>
             <label>pdf</label>
-            <input type={file}/>
+            <input type={"file"}/>
         </div>
         <button>Submit Post</button>
-    </div>
+    </div>);
+
 }
 
 export default CreatePost;
