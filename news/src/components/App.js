@@ -4,7 +4,7 @@ import Home from "./Home";
 import Login from "./Login";
 import CreatePost from "./CreatePost";
 import {useState} from 'react';
-import MailchimpFormContainer from "../MailChimpFormContainer";
+import MailchimpFormContainer from "./MailChimpFormContainer";
 
 function App() {
   const [isAuth,setIsAuth] = useState(localStorage.getItem("isAuth"))

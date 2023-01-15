@@ -8,6 +8,7 @@ const CustomForm = ({ status, message, onValidated }) => {
     const [lastName, setLastName] = useState('');
 
     const handleSubmit = (e) => {
+      
         e.preventDefault();
         email &&
         firstName &&
@@ -15,9 +16,10 @@ const CustomForm = ({ status, message, onValidated }) => {
         email.indexOf("@") > -1 &&
         onValidated({
             EMAIL: email,
-            MERGE1: firstName,
-            MERGE2: lastName,
+            FNAME: firstName,
+            LNAME: lastName,
         });
+       
     }
 
     return (
@@ -63,9 +65,9 @@ const CustomForm = ({ status, message, onValidated }) => {
 };
 
 const MailchimpFormContainer = props => {
-    const postUrl ="https://gmail.us21.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}";
+    const postUrl ="https://gmail.us21.list-manage.com/subscribe/post?u=1e3a511ecf8f5c589005717451559db2-us21&id=57abd3b75c";
     return (
-        <div className="mc__form-container">
+        <div>
             <MailchimpSubscribe
                 url={postUrl}
                 render={({ subscribe, status, message }) => (
