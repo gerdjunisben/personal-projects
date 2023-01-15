@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {addDoc,collection} from "firebase/firestore"
 import {db,storage} from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage";
 
-function CreatePost(){
+function CreatePost({isAuth}){
     const [title,setTitle] = useState("");
     const [file,setFile] = useState(null);
     const [percent,setPercent] = useState(0);
+   
 
     const handleUpload = async (f)=> {
         if (!f) {
@@ -35,6 +36,11 @@ function CreatePost(){
 
     const postsCollectionRef=collection(db,"posts");
     let navigate = useNavigate();
+    useEffect(()=>{
+        if(!isAuth)
+           navigate("login");
+    });
+
     const createPost = async ()=>{
         handleUpload(file);  
         navigate("/");
