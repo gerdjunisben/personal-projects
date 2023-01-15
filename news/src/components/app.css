@@ -18,6 +18,18 @@ nav
     padding: 10px;
 }
 
+.subbutton
+{
+    background-color: #73AB84;
+    color:white;
+
+}
+
+.inputContainer
+{
+    display: inline;
+}
+
 
 
 

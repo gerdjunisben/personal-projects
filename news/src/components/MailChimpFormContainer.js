@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 const CustomForm = ({ status, message, onValidated }) => {
@@ -19,53 +19,58 @@ const CustomForm = ({ status, message, onValidated }) => {
             FNAME: firstName,
             LNAME: lastName,
         });
-       
     }
+
+    useEffect(()=>{
+      if(status==="success"){
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+      }
+    },[status])
 
     return (
       <form onSubmit={(e) => handleSubmit(e)}>
-        <h3>Sign up for the next Ben's Biannual News Letter</h3>
+        <h3>{status==="success"?"success":"Sign up for the next Ben's Biannual News Letter"}</h3>
         <div>
           <input
-            label="First Name"
-            onChangeHandler={setFirstName}
-            type="text"
-            value={firstName}
+            onChange={(e)=>{
+              setFirstName(e.target.value);
+          }}
+            type={"text"}
             placeholder="Kevin"
-            isRequired
           />
 
           <input
-            label="Last Name"
-            onChangeHandler={setLastName}
-            type="text"
-            value={lastName}
+            onChange={(e)=>{
+              setLastName(e.target.value);
+          }}
+            type={"text"}
             placeholder="Lynch"
-            isRequired
           />
 
           <input
-            label="Email"
-            onChangeHandler={setEmail}
-            type="email"
-            value={email}
-            placeholder="your@email.com"
-            isRequired
+            onChange={(e)=>{
+              setEmail(e.target.value);
+          }}
+            type={"email"}
+            placeholder="email"
           />
 
         </div>
 
         <button
-          label="subscribe"
           type="submit"
+          
           formValues={[email, firstName, lastName]}
-        />
+          className="subbutton"
+        >Submit</button>
       </form>
     );
 };
 
 const MailchimpFormContainer = props => {
-    const postUrl ="https://gmail.us21.list-manage.com/subscribe/post?u=1e3a511ecf8f5c589005717451559db2-us21&id=57abd3b75c";
+    const postUrl ="https://gmail.us21.list-manage.com/subscribe/post?u=8b68f4f8dbffc93164d18afe6&id=57abd3b75c";
     return (
         <div>
             <MailchimpSubscribe

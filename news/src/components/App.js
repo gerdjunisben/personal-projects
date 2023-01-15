@@ -11,9 +11,9 @@ function App() {
   return (
     <Router>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/signup">Sign Up</Link>
-        {!isAuth?(<Link to="/login">Login</Link>):(<Link to="/create">Create</Link>)}
+        <Link to="/" className="link">Home</Link>
+        {!isAuth?(<Link to="/login" className="link">Login</Link>):(<Link to="/create" className="link">Create</Link>)}
+        <Link to="/signup" className="link">Sign Up</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home/>}/>
