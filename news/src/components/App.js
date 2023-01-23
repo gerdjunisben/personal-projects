@@ -12,7 +12,8 @@ function App() {
     <Router>
       <nav>
         <Link to="/" className="link">Home</Link>
-        {isAuth!=="xAYFj0KBidRW3AB1yCcGRYhfW692"?(<Link to="/login" className="link">Login</Link>):(<Link to="/create" className="link">Create</Link>)}
+        {isAuth==="xAYFj0KBidRW3AB1yCcGRYhfW692"?(<Link to="/create" className="link">Create</Link>):(<link></link>)}
+        {isAuth===null?(<Link to="/login" className="link">Login</Link>):(<link></link>)}
         <Link to="/signup" className="link">Sign Up</Link>
       </nav>
       <Routes>
