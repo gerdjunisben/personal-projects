@@ -7,12 +7,12 @@ import {useState} from 'react';
 import MailchimpFormContainer from "./MailChimpFormContainer";
 
 function App() {
-  const [isAuth,setIsAuth] = useState(localStorage.getItem("isAuth"))
+  const [isAuth,setIsAuth] = useState(localStorage.getItem("uid"))
   return (
     <Router>
       <nav>
         <Link to="/" className="link">Home</Link>
-        {!isAuth?(<Link to="/login" className="link">Login</Link>):(<Link to="/create" className="link">Create</Link>)}
+        {isAuth!=="xAYFj0KBidRW3AB1yCcGRYhfW692"?(<Link to="/login" className="link">Login</Link>):(<Link to="/create" className="link">Create</Link>)}
         <Link to="/signup" className="link">Sign Up</Link>
       </nav>
       <Routes>

@@ -1,16 +1,17 @@
 body
 {
-    background-color: #ADE1E5;
+    background-color: #8A7A98;
     text-align: center;
     font-family:"Comic Sans MS","Comic Sans",cursive
 }
 
 nav
 {
-    background-color: #73AB84;
+    background-color: #FBAC40;
     color: white;
     padding: 1%;
     align-items: center;
+    border-radius: 25px;
 }
 
 .link
@@ -20,15 +21,24 @@ nav
 
 .subbutton
 {
-    background-color: #73AB84;
+    background-color: #5a2d8d;
     color:white;
 
 }
 
 .inputContainer
 {
-    display: inline;
+    
 }
+
+.postContainer
+{
+    background-color: #fbac40;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+}
+
 
 
 

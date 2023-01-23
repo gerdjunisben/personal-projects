@@ -37,7 +37,7 @@ function CreatePost({isAuth}){
     const postsCollectionRef=collection(db,"posts");
     let navigate = useNavigate();
     useEffect(()=>{
-        if(!isAuth)
+        if(isAuth!=="xAYFj0KBidRW3AB1yCcGRYhfW692")
            navigate("login");
     });
 

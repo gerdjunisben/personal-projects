@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
+
 const CustomForm = ({ status, message, onValidated }) => {
 
     const [email, setEmail] = useState('');
@@ -33,29 +34,40 @@ const CustomForm = ({ status, message, onValidated }) => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <h3>{status==="success"?"success":"Sign up for the next Ben's Biannual News Letter"}</h3>
         <div>
-          <input
-            onChange={(e)=>{
-              setFirstName(e.target.value);
-          }}
-            type={"text"}
-            placeholder="Kevin"
-          />
+          <div className='inputContainer'>
+            <label>First Name</label>
+            <input
+              onChange={(e)=>{
+                setFirstName(e.target.value);
+              }}
+              type={"text"}
+              placeholder="Kevin"
+            />
+          </div>
+          
 
-          <input
-            onChange={(e)=>{
-              setLastName(e.target.value);
-          }}
-            type={"text"}
-            placeholder="Lynch"
-          />
-
-          <input
-            onChange={(e)=>{
-              setEmail(e.target.value);
-          }}
-            type={"email"}
-            placeholder="email"
-          />
+          <div className='inputContainer'>
+            <label>Last Name</label>
+            <input
+              onChange={(e)=>{
+                setLastName(e.target.value);
+              }}
+              type={"text"}
+              placeholder="Lynch"
+            />
+          </div>
+          
+          <div className='inputContainer'>
+            <label>First Name</label>
+            <input
+              onChange={(e)=>{
+                setEmail(e.target.value);
+              }}
+              type={"email"}
+              placeholder="email"
+            />
+          </div>
+          
 
         </div>
 

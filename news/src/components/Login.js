@@ -7,8 +7,11 @@ function Login(props){
     let navigate = useNavigate();
     const signInWithGoogle = ()=>{
         signInWithPopup(auth,provider).then((res)=>{
-            localStorage.setItem("isAuth",true);
-            props.setIsAuth(true);
+            
+            localStorage.setItem("uid",auth.currentUser.uid);
+            props.setIsAuth(auth.currentUser.uid);
+            
+            
             navigate("/");
         });
     };

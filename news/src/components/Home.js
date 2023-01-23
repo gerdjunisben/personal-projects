@@ -15,7 +15,7 @@ function Home(){
 
     return <div>
         {postLists.map((post)=>{
-            return <div>
+            return <div className="postContainer">
                 <a href= {post.url} rel="noreferrer" target="_blank">{post.title} {post.date.month}/{post.date.year}</a>
             </div>
 
