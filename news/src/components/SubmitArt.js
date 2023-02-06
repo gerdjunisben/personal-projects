@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import {addDoc,collection} from "firebase/firestore"
 import {db,storage} from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage";
 
-function CreatePost({isAuth}){
+function SubmitArt({isAuth}){
     const [title,setTitle] = useState("");
-    const [file,setFile] = useState(null);
+    const [name,setName] = useState("");
+    const [image,setImage] = useState(null);
     const [percent,setPercent] = useState(0);
    
 
@@ -23,9 +24,10 @@ function CreatePost({isAuth}){
             (err) => console.log(err),
             () => {getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
                 await addDoc(postsCollectionRef,{
+                    name,
                     title,
                     url,
-                    date:{month:(new Date().getMonth()+1),year:new Date().getFullYear()}
+                    date:{month:(new Date().getMonth()+1),day:new Date().getDay,year:new Date().getFullYear()}
                 });
             });
         }
@@ -34,39 +36,51 @@ function CreatePost({isAuth}){
         
  
 
-    const postsCollectionRef=collection(db,"posts");
+    const postsCollectionRef=collection(db,"art");
     let navigate = useNavigate();
-    useEffect(()=>{
-        if(isAuth!=="xAYFj0KBidRW3AB1yCcGRYhfW692")
-           navigate("login");
-    });
 
     const createPost = async ()=>{
-        handleUpload(file);  
+        handleUpload(image);  
         navigate("/");
     }
 
     return( 
     <div>
-        <h1>Create Post</h1>
+        <h1>Rules</h1>
         <div>
-            <div>
-                <label>Title</label>
+            <p>1.Do not upload porn or gore unless it is tasteful</p>
+            <p>2.Do not upload hateful media</p>
+            <p>3.The artist name sent will be the one I use to credit you</p>
+            <p>4.You may upload videos, pictures or articles</p>
+            <p>5.Sending something in doesn't mean it will get into the next newsletter or any</p>
+            <p>6.Hi Kevin</p>
+        </div>
+        <h1>Submit Art</h1>
+        <div className='inputContainer'>
+            <div className='input'>
+                <label>Artist Name</label>
+                <input type={"text"} onChange={(e)=>{
+                    setName(e.target.value);
+                }}/>
+            </div>
+            <div className='input'>
+                <label>Art Title</label>
                 <input type={"text"} onChange={(e)=>{
                     setTitle(e.target.value);
                 }}/>
             </div>
-            <div>
-                <label>pdf</label>
+            <div className='input'>
+                <label>File</label>
                 <input type={"file"} onChange={(e)=>{
-                    setFile(e.target.files[0]);
+                    setImage(e.target.files[0]);
                 }}/>
             </div>
         </div>
         <button onClick={createPost}>Submit Post</button>
         <p>upload percent:{percent}</p>
+        
     </div>);
 
 }
 
-export default CreatePost;
+export default SubmitArt;

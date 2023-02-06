@@ -33,8 +33,8 @@ const CustomForm = ({ status, message, onValidated }) => {
     return (
       <form onSubmit={(e) => handleSubmit(e)}>
         <h3>{status==="success"?"success":"Sign up for the next Ben's Biannual News Letter"}</h3>
-        <div>
-          <div className='inputContainer'>
+        <div className='inputContainer'>
+          <div className='input'>
             <label>First Name</label>
             <input
               onChange={(e)=>{
@@ -46,7 +46,7 @@ const CustomForm = ({ status, message, onValidated }) => {
           </div>
           
 
-          <div className='inputContainer'>
+          <div className='input'>
             <label>Last Name</label>
             <input
               onChange={(e)=>{
@@ -57,8 +57,8 @@ const CustomForm = ({ status, message, onValidated }) => {
             />
           </div>
           
-          <div className='inputContainer'>
-            <label>First Name</label>
+          <div className='input'>
+            <label>Email</label>
             <input
               onChange={(e)=>{
                 setEmail(e.target.value);

@@ -31,6 +31,12 @@ nav
     
 }
 
+.input
+{
+    align-items:center;
+    text-align: center;
+}
+
 .postContainer
 {
     background-color: #fbac40;
