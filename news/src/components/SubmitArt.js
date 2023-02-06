@@ -27,7 +27,7 @@ function SubmitArt({isAuth}){
                     name,
                     title,
                     url,
-                    date:{month:(new Date().getMonth()+1),day:new Date().getDay,year:new Date().getFullYear()}
+                    date:{month:(new Date().getMonth()+1),year:new Date().getFullYear()}
                 });
             });
         }
