@@ -15,6 +15,12 @@ function SubmitArt({isAuth}){
         if (!f) {
             alert("Please choose a file first!")
         }
+        else if((f.size/1024) > 10)
+        {
+            alert("File too big, try to keep that shit under 10 KB")
+        }
+        else
+        {
         const storageRef = ref(storage,`/files/${f.name}`)
         const uploadTask = uploadBytesResumable(storageRef, f);
         uploadTask.on("state_changed",(snapshot) => {
@@ -32,6 +38,7 @@ function SubmitArt({isAuth}){
             });
         }
         );
+        }
     }
         
  

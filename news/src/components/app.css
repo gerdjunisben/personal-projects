@@ -5,18 +5,60 @@ body
     font-family: 'Comic Neue', cursive;
 }
 
+.funnyDog
+{
+    width: 200px;
+    height: 200px;
+}
+
+@media only screen and (max-width:1000px)
+{
+    .funnyDog
+    {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.welcome
+{
+    font:large;
+}
+
+.menu
+{
+    align-items: center;
+    text-align: center;
+}
+
 nav
 {
     background-color: #FBAC40;
     color: white;
-    padding: 1%;
+    padding: 5%;
     align-items: center;
     border-radius: 25px;
+
 }
+
+
 
 .link
 {
-    padding: 10px;
+    visibility: visible;
+    padding: 20px;
+}
+
+.invisLink
+{
+    visibility: hidden;
+}
+
+.img
+{
+  position: absolute;
+  top: 2%;
+  left: 5%;
 }
 
 .subbutton
