@@ -1,7 +1,6 @@
 import React, {useState } from "react";
 import {addDoc,collection} from "firebase/firestore"
 import {db,storage} from "../firebase-config";
-import { useNavigate } from "react-router-dom";
 import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage";
 
 function SubmitArt({isAuth}){
@@ -15,9 +14,9 @@ function SubmitArt({isAuth}){
         if (!f) {
             alert("Please choose a file first!")
         }
-        else if((f.size/1024) > 10)
+        else if((f.size/(1024*1024)) > 2)
         {
-            alert("File too big, try to keep that shit under 10 KB")
+            alert("File too big, try to keep that shit under 2 MB")
         }
         else
         {
@@ -41,14 +40,11 @@ function SubmitArt({isAuth}){
         }
     }
         
- 
 
     const postsCollectionRef=collection(db,"art");
-    let navigate = useNavigate();
 
     const createPost = async ()=>{
-        handleUpload(image);  
-        navigate("/");
+        handleUpload(image); 
     }
 
     return( 

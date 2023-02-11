@@ -20,6 +20,15 @@ body
     }
 }
 
+@media only screen and (max-width:500px)
+{
+    .funnyDog
+    {
+        width: 60px;
+        height: 60px;
+    }
+}
+
 .welcome
 {
     font:large;
